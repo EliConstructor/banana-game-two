@@ -1,8 +1,9 @@
-[gd_scene load_steps=21 format=3 uid="uid://c8dsxq4vjsr5g"]
+[gd_scene load_steps=26 format=3 uid="uid://c8dsxq4vjsr5g"]
 
 [ext_resource type="Texture2D" uid="uid://ct0obvmfp0hkn" path="res://textures/banana.png" id="1_g477y"]
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_ugeij"]
 [ext_resource type="Script" path="res://scripts/bananacounter.gd" id="2_7cqsc"]
+[ext_resource type="Theme" uid="uid://dxb6tg8jo2m80" path="res://ui_theme.tres" id="2_cwosx"]
 [ext_resource type="Texture2D" uid="uid://dty53xo48chtr" path="res://textures/jungle.jpg" id="2_mms3p"]
 [ext_resource type="Script" path="res://scripts/bananabutton.gd" id="3_6d03r"]
 [ext_resource type="Script" path="res://scripts/bananarate.gd" id="3_nls3j"]
@@ -11,6 +12,7 @@
 [ext_resource type="Script" path="res://scripts/producers.gd" id="7_iuqen"]
 [ext_resource type="Resource" uid="uid://3c75y275fa" path="res://producers/bananafarm.tres" id="8_ua2jp"]
 [ext_resource type="Resource" uid="uid://stqibj4npgjl" path="res://producers/bananaprinter.tres" id="10_3nme3"]
+[ext_resource type="Script" path="res://scripts/wageslabel.gd" id="10_ea8bh"]
 [ext_resource type="Resource" uid="uid://b6sd5v0yj8uuo" path="res://producers/bananagoblin.tres" id="11_fvttr"]
 [ext_resource type="Resource" uid="uid://b820phqhsttcd" path="res://producers/bananafinder.tres" id="12_p4e8y"]
 [ext_resource type="Resource" uid="uid://mkxrpooy3q06" path="res://producers/bananagenerator.tres" id="13_yqtsv"]
@@ -18,6 +20,9 @@
 [ext_resource type="Resource" uid="uid://iw0dupf6a7r8" path="res://upgrades/bananapicker.tres" id="16_rbajd"]
 [ext_resource type="Resource" uid="uid://h6yls7x4lhfs" path="res://upgrades/worker.tres" id="17_2ytca"]
 [ext_resource type="Resource" uid="uid://chgl8jwshefqy" path="res://upgrades/bananagatherer.tres" id="18_3hefm"]
+[ext_resource type="PackedScene" uid="uid://rasrwyhpxe71" path="res://uielements/revolution_info.tscn" id="19_boofn"]
+[ext_resource type="Resource" uid="uid://btby5g1y8xaea" path="res://upgrades/robotic_workers.tres" id="21_08obn"]
+[ext_resource type="Script" path="res://scripts/event_manager.gd" id="21_uuqc4"]
 
 [sub_resource type="Gradient" id="Gradient_sl6b2"]
 colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 0.45098)
@@ -34,6 +39,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("2_cwosx")
 texture = ExtResource("2_mms3p")
 stretch_mode = 6
 
@@ -43,6 +49,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("2_cwosx")
 texture = SubResource("GradientTexture1D_d2ufh")
 stretch_mode = 6
 
@@ -52,6 +59,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("2_cwosx")
 
 [node name="BananaColumn" type="VBoxContainer" parent="GUIColumns"]
 layout_mode = 2
@@ -59,11 +67,13 @@ size_flags_horizontal = 3
 
 [node name="BananaCounter" type="Label" parent="GUIColumns/BananaColumn"]
 layout_mode = 2
+theme_type_variation = &"HeaderLarge"
 text = "1234 Bananas"
 script = ExtResource("2_7cqsc")
 
 [node name="BananaRate" type="Label" parent="GUIColumns/BananaColumn"]
 layout_mode = 2
+theme_type_variation = &"HeaderMedium"
 text = "36 bananas per second"
 script = ExtResource("3_nls3j")
 
@@ -77,12 +87,22 @@ texture_hover = ExtResource("5_ynmet")
 stretch_mode = 0
 script = ExtResource("3_6d03r")
 
+[node name="Wages" type="Label" parent="GUIColumns/BananaColumn"]
+visible = false
+layout_mode = 2
+theme = ExtResource("2_cwosx")
+theme_type_variation = &"HeaderMedium"
+text = "Paying 321 bananas per second in wages to workers"
+autowrap_mode = 3
+script = ExtResource("10_ea8bh")
+
 [node name="ProducersColumn" type="VBoxContainer" parent="GUIColumns"]
 layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="Header" type="Label" parent="GUIColumns/ProducersColumn"]
 layout_mode = 2
+theme_type_variation = &"HeaderLarge"
 text = "Producers"
 
 [node name="ScrollContainer" type="ScrollContainer" parent="GUIColumns/ProducersColumn"]
@@ -102,6 +122,7 @@ size_flags_horizontal = 3
 
 [node name="Header" type="Label" parent="GUIColumns/UpgradesColumn"]
 layout_mode = 2
+theme_type_variation = &"HeaderLarge"
 text = "Upgrades"
 
 [node name="ScrollContainer" type="ScrollContainer" parent="GUIColumns/UpgradesColumn"]
@@ -113,6 +134,12 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource("15_gdv75")
-upgrades = Array[Resource("res://resourcetypes/upgrade.gd")]([ExtResource("16_rbajd"), ExtResource("17_2ytca"), ExtResource("18_3hefm")])
+upgrades = Array[Resource("res://resourcetypes/upgrade.gd")]([ExtResource("16_rbajd"), ExtResource("17_2ytca"), ExtResource("18_3hefm"), ExtResource("21_08obn")])
+
+[node name="RevolutionInfo" parent="." instance=ExtResource("19_boofn")]
+visible = false
+
+[node name="EventManager" type="Node" parent="."]
+script = ExtResource("21_uuqc4")
 
 [connection signal="pressed" from="GUIColumns/BananaColumn/BananaButton" to="GUIColumns/BananaColumn/BananaButton" method="_on_pressed"]

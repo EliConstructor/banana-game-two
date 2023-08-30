@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Upgrade" load_steps=3 format=3 uid="uid://btby5g1y8xaea"]
+
+[ext_resource type="Texture2D" uid="uid://dvvjjfe8ipgon" path="res://textures/robot.png" id="1_b4k3f"]
+[ext_resource type="Script" path="res://resourcetypes/upgrade.gd" id="1_w2eth"]
+
+[resource]
+script = ExtResource("1_w2eth")
+name = "Robotic Workers"
+description = "Replace workers with robots, and don't pay wages anymore."
+icon = ExtResource("1_b4k3f")
+basePrice = 2000000
+priceMultiplier = 1.0
+locked = true
+auto_unlock = false
+max_amount = 1

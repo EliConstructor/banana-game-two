@@ -1,0 +1,74 @@
+[gd_scene load_steps=3 format=3 uid="uid://rasrwyhpxe71"]
+
+[ext_resource type="Theme" uid="uid://dxb6tg8jo2m80" path="res://ui_theme.tres" id="1_ofb1e"]
+[ext_resource type="Script" path="res://scripts/revolution.gd" id="2_hss5v"]
+
+[node name="RevolutionInfo" type="Panel"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -243.0
+offset_top = -126.0
+offset_right = 243.0
+offset_bottom = 126.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_ofb1e")
+script = ExtResource("2_hss5v")
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 42.0
+grow_horizontal = 2
+theme = ExtResource("1_ofb1e")
+theme_type_variation = &"HeaderLarge"
+text = "Banana Revolution"
+horizontal_alignment = 1
+
+[node name="Info" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 41.0
+offset_bottom = 197.0
+grow_horizontal = 2
+theme = ExtResource("1_ofb1e")
+text = "Your workers are getting fed up with your accumulating wealth of bananas. They are unionizing and demanding a cut of your profits. There may be another solution though.
+
+What to do?"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Option1" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -31.0
+offset_right = 198.0
+grow_vertical = 0
+theme = ExtResource("1_ofb1e")
+text = "Give In (Pay each worker 10
+bananas per second in wages)"
+
+[node name="Option2" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -240.0
+offset_top = -54.0
+grow_horizontal = 0
+grow_vertical = 0
+theme = ExtResource("1_ofb1e")
+text = "Refuse! (\"Remove\" 50% of
+your workers)"
+
+[connection signal="pressed" from="Option1" to="." method="_on_option_1_pressed"]
+[connection signal="pressed" from="Option2" to="." method="_on_option_2_pressed"]

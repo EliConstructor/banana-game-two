@@ -1,7 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://dki21drscjmnp"]
+[gd_scene load_steps=5 format=3 uid="uid://dki21drscjmnp"]
 
 [ext_resource type="Script" path="res://scripts/itembutton.gd" id="1_e44jp"]
 [ext_resource type="Texture2D" uid="uid://7m20lc4mkhs2" path="res://textures/farm.png" id="2_sw6sh"]
+
+[sub_resource type="Gradient" id="Gradient_cdr62"]
+colors = PackedColorArray(0, 0, 0, 0.47451, 0, 0, 0, 0.47451)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_o0ult"]
+gradient = SubResource("Gradient_cdr62")
 
 [node name="ItemButton" type="Button"]
 custom_minimum_size = Vector2(0, 100)
@@ -40,5 +46,28 @@ text = "Count"
 [node name="Price" type="Label" parent="Container/Info"]
 layout_mode = 2
 text = "Price"
+
+[node name="Shade" type="TextureRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture1D_o0ult")
+
+[node name="LockedLabel" type="Label" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_type_variation = &"HeaderLarge"
+text = "LOCKED"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="pressed" from="." to="." method="_on_pressed"]

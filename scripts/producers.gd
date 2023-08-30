@@ -4,6 +4,7 @@ extends VBoxContainer
 var item_button = preload("res://uielements/item_button.tscn")
 
 @onready var upgrades = $/root/Main/GUIColumns/UpgradesColumn/ScrollContainer/Upgrades
+@onready var main = $/root/Main
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -21,4 +22,12 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+	# Unlock if necessary
+	for producer in producers:
+		if main.bananas > producer.basePrice and producer.auto_unlock:
+			producer.locked = false
+
+func get_producer_of_type(target):
+	for producer in producers:
+		if producer == target:
+			return producer
