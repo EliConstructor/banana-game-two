@@ -2,6 +2,8 @@ extends Node
 
 var game_version: int = 1
 var loaded = false
+var time_since_save: float = 0
+var save_interval: int = 10
 
 @export var bananas: float = 0
 
@@ -23,6 +25,11 @@ func _process(delta):
 		bananas = bananas + 100000
 	if Input.is_action_just_pressed("savegame"):
 		save_game()
+	
+	time_since_save = time_since_save + delta
+	if time_since_save > save_interval:
+		save_game()
+		time_since_save = 0
 
 func get_total_production():
 	var total = 0
@@ -80,3 +87,20 @@ func load_game():
 	if event_manager.workers_payed:
 		event_manager.revolution_info.wages_label.visible = true
 
+func reset_game():
+	# Basic Data
+	bananas = 0
+	
+	# Upgrades and producers
+	for producer in producers.producers:
+		producer.amount = 0
+		producer.locked = true
+	for upgrade in upgrades.upgrades:
+		upgrade.amount = 0
+		upgrade.locked = true
+	
+	event_manager.workers_payed = false
+	event_manager.revolution_info.wages_label.visible = false
+	
+	save_game()
+	

@@ -11,5 +11,6 @@ description = "Produces %s banana per second"
 icon = ExtResource("1_31q2d")
 basePrice = 20
 priceMultiplier = 1.1
-locked = false
+locked = true
+auto_unlock = true
 max_amount = -1

@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://c8dsxq4vjsr5g"]
+[gd_scene load_steps=28 format=3 uid="uid://c8dsxq4vjsr5g"]
 
 [ext_resource type="Texture2D" uid="uid://ct0obvmfp0hkn" path="res://textures/banana.png" id="1_g477y"]
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_ugeij"]
@@ -23,6 +23,8 @@
 [ext_resource type="PackedScene" uid="uid://rasrwyhpxe71" path="res://uielements/revolution_info.tscn" id="19_boofn"]
 [ext_resource type="Resource" uid="uid://btby5g1y8xaea" path="res://upgrades/robotic_workers.tres" id="21_08obn"]
 [ext_resource type="Script" path="res://scripts/event_manager.gd" id="21_uuqc4"]
+[ext_resource type="PackedScene" uid="uid://cui5c27hsn2dh" path="res://uielements/menu.tscn" id="23_nntga"]
+[ext_resource type="PackedScene" uid="uid://uk7nr67yt0jr" path="res://uielements/reset_panel.tscn" id="24_3jpqu"]
 
 [sub_resource type="Gradient" id="Gradient_sl6b2"]
 colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 0.45098)
@@ -137,6 +139,12 @@ script = ExtResource("15_gdv75")
 upgrades = Array[Resource("res://resourcetypes/upgrade.gd")]([ExtResource("16_rbajd"), ExtResource("17_2ytca"), ExtResource("18_3hefm"), ExtResource("21_08obn")])
 
 [node name="RevolutionInfo" parent="." instance=ExtResource("19_boofn")]
+visible = false
+
+[node name="Menu" parent="." instance=ExtResource("23_nntga")]
+visible = false
+
+[node name="ResetPanel" parent="." instance=ExtResource("24_3jpqu")]
 visible = false
 
 [node name="EventManager" type="Node" parent="."]
