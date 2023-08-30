@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ClickBoostUpgrade" load_steps=3 format=3 uid="uid://chgl8jwshefqy"]
+
+[ext_resource type="Texture2D" uid="uid://ouekkiskr2rt" path="res://textures/gatherer.png" id="1_fl5dp"]
+[ext_resource type="Script" path="res://resourcetypes/clickboostupgrade.gd" id="1_uvhbl"]
+
+[resource]
+script = ExtResource("1_uvhbl")
+type = 0
+modifier = 10.0
+name = "Banana Gatherer"
+description = "Adds 10 extra bananas per click"
+icon = ExtResource("1_fl5dp")
+basePrice = 15000
+priceMultiplier = 1.5

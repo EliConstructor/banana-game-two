@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ClickBoostUpgrade" load_steps=3 format=3 uid="uid://iw0dupf6a7r8"]
+
+[ext_resource type="Script" path="res://resourcetypes/clickboostupgrade.gd" id="1_6xqpc"]
+[ext_resource type="Texture2D" uid="uid://biq1ytu68r0bk" path="res://textures/picker.png" id="1_lj82e"]
+
+[resource]
+script = ExtResource("1_6xqpc")
+type = 0
+modifier = 1.0
+name = "Banana Picker"
+description = "Adds 1 extra banana per click"
+icon = ExtResource("1_lj82e")
+basePrice = 50
+priceMultiplier = 1.5

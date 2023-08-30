@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Producer" load_steps=3 format=3 uid="uid://stqibj4npgjl"]
+
+[ext_resource type="Texture2D" uid="uid://d25cad5kjg7ag" path="res://textures/printer.png" id="1_a0o8c"]
+[ext_resource type="Script" path="res://resourcetypes/producer.gd" id="1_be3j2"]
+
+[resource]
+script = ExtResource("1_be3j2")
+production = 2
+name = "Banana Printer"
+description = "Produces %s bananas per second"
+icon = ExtResource("1_a0o8c")
+basePrice = 250
+priceMultiplier = 1.1

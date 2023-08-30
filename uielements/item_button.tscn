@@ -1,0 +1,44 @@
+[gd_scene load_steps=3 format=3 uid="uid://dki21drscjmnp"]
+
+[ext_resource type="Script" path="res://scripts/itembutton.gd" id="1_e44jp"]
+[ext_resource type="Texture2D" uid="uid://7m20lc4mkhs2" path="res://textures/farm.png" id="2_sw6sh"]
+
+[node name="ItemButton" type="Button"]
+custom_minimum_size = Vector2(0, 100)
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 100.0
+grow_horizontal = 2
+script = ExtResource("1_e44jp")
+
+[node name="Container" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Icon" type="TextureRect" parent="Container"]
+layout_mode = 2
+texture = ExtResource("2_sw6sh")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="Info" type="VBoxContainer" parent="Container"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Name" type="Label" parent="Container/Info"]
+layout_mode = 2
+text = "Name"
+
+[node name="Count" type="Label" parent="Container/Info"]
+layout_mode = 2
+text = "Count"
+
+[node name="Price" type="Label" parent="Container/Info"]
+layout_mode = 2
+text = "Price"
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

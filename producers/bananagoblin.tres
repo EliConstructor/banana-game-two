@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Producer" load_steps=3 format=3 uid="uid://b6sd5v0yj8uuo"]
+
+[ext_resource type="Texture2D" uid="uid://dooigv1weytx7" path="res://textures/goblin.png" id="1_ogw2y"]
+[ext_resource type="Script" path="res://resourcetypes/producer.gd" id="1_ydjwc"]
+
+[resource]
+script = ExtResource("1_ydjwc")
+production = 5
+name = "Banana Goblin"
+description = "Produces %s bananas per second"
+icon = ExtResource("1_ogw2y")
+basePrice = 1000
+priceMultiplier = 1.1

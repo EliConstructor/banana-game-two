@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Producer" load_steps=3 format=3 uid="uid://3c75y275fa"]
+
+[ext_resource type="Texture2D" uid="uid://7m20lc4mkhs2" path="res://textures/farm.png" id="1_31q2d"]
+[ext_resource type="Script" path="res://resourcetypes/producer.gd" id="1_bab8w"]
+
+[resource]
+script = ExtResource("1_bab8w")
+production = 1
+name = "Banana Farm"
+description = "Produces %s banana per second"
+icon = ExtResource("1_31q2d")
+basePrice = 20
+priceMultiplier = 1.1

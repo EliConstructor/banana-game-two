@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Producer" load_steps=3 format=3 uid="uid://mkxrpooy3q06"]
+
+[ext_resource type="Script" path="res://resourcetypes/producer.gd" id="1_mowmw"]
+[ext_resource type="Texture2D" uid="uid://n4huqjl2sawx" path="res://textures/generator.png" id="1_ovlrj"]
+
+[resource]
+script = ExtResource("1_mowmw")
+production = 20
+name = "Banana Generator"
+description = "Produces %s bananas per second"
+icon = ExtResource("1_ovlrj")
+basePrice = 10000
+priceMultiplier = 1.1

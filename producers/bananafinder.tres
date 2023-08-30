@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Producer" load_steps=3 format=3 uid="uid://b820phqhsttcd"]
+
+[ext_resource type="Script" path="res://resourcetypes/producer.gd" id="1_08t5h"]
+[ext_resource type="Texture2D" uid="uid://dtpq0ayvtsg5i" path="res://textures/finder.png" id="1_36lbs"]
+
+[resource]
+script = ExtResource("1_08t5h")
+production = 10
+name = "Banana Finder"
+description = "Produces %s bananas per second"
+icon = ExtResource("1_36lbs")
+basePrice = 3000
+priceMultiplier = 1.1
