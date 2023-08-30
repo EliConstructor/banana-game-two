@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://c8dsxq4vjsr5g"]
+[gd_scene load_steps=29 format=3 uid="uid://c8dsxq4vjsr5g"]
 
 [ext_resource type="Texture2D" uid="uid://ct0obvmfp0hkn" path="res://textures/banana.png" id="1_g477y"]
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_ugeij"]
@@ -25,6 +25,7 @@
 [ext_resource type="Script" path="res://scripts/event_manager.gd" id="21_uuqc4"]
 [ext_resource type="PackedScene" uid="uid://cui5c27hsn2dh" path="res://uielements/menu.tscn" id="23_nntga"]
 [ext_resource type="PackedScene" uid="uid://uk7nr67yt0jr" path="res://uielements/reset_panel.tscn" id="24_3jpqu"]
+[ext_resource type="Script" path="res://scripts/version_label.gd" id="26_qbjkr"]
 
 [sub_resource type="Gradient" id="Gradient_sl6b2"]
 colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 0.45098)
@@ -149,5 +150,15 @@ visible = false
 
 [node name="EventManager" type="Node" parent="."]
 script = ExtResource("21_uuqc4")
+
+[node name="VersionLabel" type="Label" parent="."]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -23.0
+offset_right = 40.0
+grow_vertical = 0
+text = "v0"
+script = ExtResource("26_qbjkr")
 
 [connection signal="pressed" from="GUIColumns/BananaColumn/BananaButton" to="GUIColumns/BananaColumn/BananaButton" method="_on_pressed"]
