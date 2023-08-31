@@ -20,8 +20,12 @@ func _on_pressed():
 		update_labels()
 
 func _process(delta):
-	if item is Producer:
+	if item is Producer and !item.locked:
 		tooltip_text = item.description % str(snapped(item.get_base_production(), 0.01))
+	elif !item.locked:
+		tooltip_text = item.description
+	else:
+		tooltip_text = "Locked"
 	
 	update_labels()
 	
