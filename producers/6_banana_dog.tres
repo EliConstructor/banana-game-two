@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Producer" load_steps=3 format=3 uid="uid://ui502eh4t0vv"]
+
+[ext_resource type="Texture2D" uid="uid://cwmkys1h7cy58" path="res://textures/dog.png" id="1_46b8l"]
+[ext_resource type="Script" path="res://resourcetypes/producer.gd" id="1_q6ilc"]
+
+[resource]
+script = ExtResource("1_q6ilc")
+production = 70
+name = "Banana Dog"
+description = "He fetches you some bananas like a good boy! Produces %s bananas per second."
+icon = ExtResource("1_46b8l")
+basePrice = 150000
+priceMultiplier = 1.1
+locked = true
+auto_unlock = true
+max_amount = -1

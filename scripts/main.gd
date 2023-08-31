@@ -1,6 +1,6 @@
 extends Node
 
-var game_version: int = 1
+var game_version: int = 2
 var loaded = false
 var time_since_save: float = 0
 var save_interval: int = 10
@@ -73,11 +73,11 @@ func load_game():
 	
 	# Upgrades and producers
 	for producer in producers.producers:
-		if data[producer.name + ".amount"] != null:
+		if data.has(producer.name + ".amount"):
 			producer.amount = data[producer.name + ".amount"]
 			producer.locked = data[producer.name + ".locked"]
 	for upgrade in upgrades.upgrades:
-		if data[upgrade.name + ".amount"] != null:
+		if data.has(upgrade.name + ".amount"):
 			upgrade.amount = data[upgrade.name + ".amount"]
 			upgrade.locked = data[upgrade.name + ".locked"]
 	

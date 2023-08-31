@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Producer" load_steps=3 format=3 uid="uid://cd7meo37fa8j5"]
+
+[ext_resource type="Script" path="res://resourcetypes/producer.gd" id="1_6psiy"]
+[ext_resource type="Texture2D" uid="uid://bwery2iil0tla" path="res://textures/truck.png" id="1_e1jkm"]
+
+[resource]
+script = ExtResource("1_6psiy")
+production = 130
+name = "Banana Truck"
+description = "Direct shipments of metric tons of bananas straight to shops! Produces %s bananas per second."
+icon = ExtResource("1_e1jkm")
+basePrice = 400000
+priceMultiplier = 1.1
+locked = true
+auto_unlock = true
+max_amount = -1

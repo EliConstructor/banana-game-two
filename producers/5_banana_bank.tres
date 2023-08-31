@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Producer" load_steps=3 format=3 uid="uid://dl5lmmxcvwclr"]
+
+[ext_resource type="Texture2D" uid="uid://y7qrq0qwnn2m" path="res://textures/bank.png" id="1_5jcsj"]
+[ext_resource type="Script" path="res://resourcetypes/producer.gd" id="1_eygnh"]
+
+[resource]
+script = ExtResource("1_eygnh")
+production = 35
+name = "Banana Bank"
+description = "Let people invest in bananas! Produces %s bananas per second."
+icon = ExtResource("1_5jcsj")
+basePrice = 50000
+priceMultiplier = 1.1
+locked = true
+auto_unlock = true
+max_amount = -1
